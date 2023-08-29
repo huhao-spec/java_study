@@ -5,6 +5,7 @@ public class midCar extends car implements lanned  {
     public midCar(String name, String color,int weight) {
         super(name, color);
         this.getWeight = weight;
+        System.out.println("爹");
     }
 
     @Override
