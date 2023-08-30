@@ -11,7 +11,9 @@ public class threads_overview {
     3.数据被多线程共享，可能会出现死锁的情况
     * */
     public static void main(String[] args) {
+
         new Thread(new Runnable() {
+            // 线程1
             @Override
             public void run() {
                 for (int i = 0;i<100;i++){
@@ -20,8 +22,19 @@ public class threads_overview {
             }
         }).start();
 
+        new Thread(new Runnable() {
+            // 线程2
+            @Override
+            public void run() {
+                for (int i =0; i<100;i++){
+                    System.out.println("---王五炒菜");
+                }
+            }
+        }).start();
+
+
         for (int i =0; i<100;i++){
-        System.out.println("张角炒菜");
+        System.out.println("-----张角炒菜");
         }
 //        myTest myTest = new myTest();
 //        myTest.myTest();
