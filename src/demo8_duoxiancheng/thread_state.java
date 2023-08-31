@@ -36,7 +36,20 @@ public class thread_state extends Thread {
     *
     *
     * 线程中断
-    * */
+    * 会导致线程终端的情况：
+    * 1.线程执行完毕自动结束
+    * 2.线程执行异常并自动停止异常
+    * 3.线程执行过程中手动终止
+    * java实现线程中断的方法：
+    * public void stop
+    * public void Interrupt
+    * public Boolean isInterrupted()
+    * stop在jdk8里面已经不推荐使用，重点关注后面的方法
+    * interrupt是一个实例方法，当一个线程调用这个方法时候，表示终端当前线程对象
+    * 每个对象都是通过一个标志位来获取当前线程对象的标志位：True是表示清除了标志位，当前线程已经中断，false表示没有清除标志位，当前线程没有中断
+    * 当一个线程对象处于不同状态时候，中断机制也不同
+    * 处于创建状态不启动就行了*/
+
 
     @Override
     public void run() {
