@@ -5,12 +5,12 @@ import java.util.concurrent.locks.ReentrantLock;
 
 public class Thread_xiefa_ReentrantLock_demo1 {
     public static void main(String[] args) {
-        Acount Acount1 = new Acount();
+        Acount_num acountNum1 = new Acount_num();
         // lamada支持函数接口调用形式
-        new Thread(Acount1::count,"A").start();
-        new Thread(Acount1::count,"B").start();
-        new Thread(Acount1::count,"C").start();
-        new Thread(Acount1::count,"D").start();
+        new Thread(acountNum1::count,"A").start();
+        new Thread(acountNum1::count,"B").start();
+        new Thread(acountNum1::count,"C").start();
+        new Thread(acountNum1::count,"D").start();
     }
 }
 class Acount{
