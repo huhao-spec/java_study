@@ -7,8 +7,13 @@ public class deadLock_test {
         Runnable deadlock1 = new deadlock();
         ((demo10_suo.deadlock) deadlock1).num  = 2;
         Thread th1 = new Thread(deadlock,"线程1");
-        th1.start();
         Thread th2 = new Thread(deadlock1,"线程2");
+        th1.start();
+        try {
+            Thread.sleep(6000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         th2.start();
     }
 }
