@@ -6,7 +6,7 @@ public class SingletonDemon {
     private SingletonDemon(){//定义成私有的就不能想new就new了
         System.out.println("创建了SingletonDemon");
     }
-    public static SingletonDemon getSingletonDemon(){
+    public synchronized static SingletonDemon getSingletonDemon(){
         if(SingletonDemon ==null){
             SingletonDemon = new SingletonDemon();
         }
