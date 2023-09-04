@@ -15,9 +15,11 @@ class Timelock{
     public void lock(){
         // 尝试在3秒内拿到锁
         try {
-            if (reentrantLock.tryLock(5000, TimeUnit.MILLISECONDS)) {
+            if (reentrantLock.tryLock(1, TimeUnit.SECONDS)) {
                 System.out.println(Thread.currentThread().getName() + "拿到锁了");
                 TimeUnit.SECONDS.sleep(1);
+            }else{
+                System.out.println(Thread.currentThread().getName()+"拿锁失败");
             }
         }catch (InterruptedException e){
             e.printStackTrace();
