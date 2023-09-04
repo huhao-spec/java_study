@@ -8,7 +8,15 @@ import java.util.concurrent.TimeUnit;
 * synchronized
 * synchronized修饰非静态方法，锁定的是方法的调用者
 * synchronized修饰静态方法，锁定的是类
-* synchronized静态方法与实例方法同时存在，静态方法锁定的是类，实例的方法锁对象 */
+* synchronized静态方法与实例方法同时存在，静态方法锁定的是类，实例的方法锁对象
+* synchronized自动上锁，自动释放锁，LOCK手动上锁，手动释放锁
+* synchronized无法判断是否获取到了锁，lock可以判断是否拿到锁
+* synchronized拿不到锁会一直等待，lock不一定会一直等，并且没有期限
+* synchronized是jdk关键字实现的，lock是接口
+* synchronized是非公平锁很公平，排队，当前线程需要判断队列种是否由其他等待锁，lock可以设置是否为公平锁，当前线程可以直接插队
+* 实际开发中使用LOCK方式
+* ReentranLock方式具有限时性的特点，可以判断某个线程在一定的时间点能否获取到锁，使用TryLock方法可以返回布尔类型的值
+* true可以表示获取到锁，false表示无法获取到锁*/
 public class fneli {
     public static void main(String[] args) {
         acount ac = new acount();
