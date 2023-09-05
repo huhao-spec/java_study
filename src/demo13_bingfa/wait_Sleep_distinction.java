@@ -1,9 +1,9 @@
 package demo13_bingfa;
 
-
 import java.sql.Time;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantLock;
+// 如果使用Lock锁就不能使用this.Notfiy来唤醒锁而是用Condition的await跟signal来唤醒
 
 public class wait_Sleep_distinction {
     public static void main(String[] args) {
@@ -30,8 +30,8 @@ public class wait_Sleep_distinction {
                 }
             }
         },"制作者2").start();
-//        new Thread(Account::decline,"消费者1").start();
-//        new Thread(Account::decline,"消费者2").start();
+        new Thread(Account::arise,"消费者1").start();
+        new Thread(Account::decline,"消费者2").start();
 
     }
 }
@@ -64,5 +64,4 @@ class Account1 {
         lock.unlock();
     }
 }
-
 
